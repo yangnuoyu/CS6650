@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="lab02:war" />
+      <artifact name="lab02:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6ef48cc-c4ee-489a-8335-c9526bfe7fe9" name="Default Changelist" comment="" />
+    <list default="true" id="d6ef48cc-c4ee-489a-8335-c9526bfe7fe9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/log.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/MultiThreadClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/MultiThreadClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/target/classes/MultiThreadClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/target/classes/MultiThreadClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SkierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SkierServlet.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -38,11 +52,13 @@
     </option>
   </component>
   <component name="ProjectId" id="1QzB8BlIqHhzCPIZpYIOZR2WfPs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -193,11 +209,28 @@
       <workItem from="1569797017211" duration="5000" />
       <workItem from="1569876707025" duration="1764000" />
       <workItem from="1570308588268" duration="4370000" />
+      <workItem from="1570742781020" duration="2738000" />
+      <workItem from="1570758499743" duration="472000" />
+      <workItem from="1570759451278" duration="194000" />
+      <workItem from="1570778604162" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

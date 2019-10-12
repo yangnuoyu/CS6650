@@ -22,7 +22,7 @@ public class MultiThreadClient implements IUpicResortsClient{
   private Logger errLogger;
   private Long startTime;
   private Long endTime;
-  private Vector<Long> time;
+  private Vector<List<Long>> time;
   private ConcurrentLinkedQueue<String> log;
 
   public MultiThreadClient(int numThreads, int numSkiers, String serverAddress) throws Exception{
@@ -53,16 +53,19 @@ public class MultiThreadClient implements IUpicResortsClient{
     this.numLifts = numLifts;
     this.numRuns = numRuns;
   }
-  private synchronized void addNumSuccess() {
-    this.numSuccess += 1;
+  private synchronized void addNumSuccess(int n) {
+    this.numSuccess += n;
   }
 
-  private synchronized void addNumNonSuccess() {
-    this.numNonSuccess += 1;
+  private synchronized void addNumNonSuccess(int n) {
+    this.numNonSuccess += n;
   }
 
-  private void addLog(long startTime, String requestType, long latency, int responseCode) {
-    this.log.add(startTime + "," + requestType + "," + latency + "," + responseCode);
+  private void addLog(StringBuilder builder, long startTime, String requestType, long latency, int responseCode) {
+    builder.append(startTime).append(",")
+            .append(requestType).append(",")
+            .append(latency).append(",")
+            .append(responseCode);
   }
 
 
@@ -71,13 +74,13 @@ public class MultiThreadClient implements IUpicResortsClient{
     int threadPhase2 = this.numThreads;
     int threadPhase3 = this.numThreads / 4;
 
-    int numPostPhase1 = (int)(numRuns*0.1)*(numSkiers/threadPhase1);
-    int numPostPhase2 = (int)(numRuns*0.8)*(numSkiers/threadPhase2);
-    int numPostPhase3 = (int)(numRuns*0.1)*threadPhase3;
+    int numPostPhase1 = (int)((numRuns*0.1)*((double)numSkiers/threadPhase1));
+    int numPostPhase2 = (int)((numRuns*0.8)*((double)numSkiers/threadPhase2));
+    int numPostPhase3 = (int)((numRuns*0.1)*((double)numSkiers/threadPhase3));
 
     CountDownLatch phase1Signal = new CountDownLatch(1);
-    CountDownLatch phase2Signal = new CountDownLatch((int)(threadPhase1 * 0.1 + 0.5));
-    CountDownLatch phase3Signal = new CountDownLatch((int)(threadPhase2 * 0.1 + 0.5));
+    CountDownLatch phase2Signal = new CountDownLatch((int)(threadPhase1 * 0.1 ));
+    CountDownLatch phase3Signal = new CountDownLatch((int)(threadPhase2 * 0.1 ));
     CountDownLatch endSignal = new CountDownLatch(threadPhase1 + threadPhase2 + threadPhase3);
 
     this.phase(threadPhase1, numPostPhase1, phase1Signal, phase2Signal, endSignal,1, 90);
@@ -100,16 +103,18 @@ public class MultiThreadClient implements IUpicResortsClient{
   }
 
   public void analysis () {
-    int n = this.time.size();
-    this.time.sort(Comparator.naturalOrder());
-    double median = this.time.get(n / 2);
-    if (n % 2 == 0) median = (median + this.time.get(n / 2 - 1)) / 2;
+    List<Long> array = new ArrayList<>();
+    for (List<Long> threadTime : this.time) array.addAll(threadTime);
+    int n = array.size();
+    array.sort(Comparator.comparingLong(x->x));
+    double median = array.get(n / 2);
+    if (n % 2 == 0) median = (median + array.get(n / 2 - 1)) / 2;
     double mean = 0.0;
-    for (int i = 0; i < n; i++) mean += this.time.get(i);
+    for (int i = 0; i < n; i++) mean += array.get(i);
     mean /= n;
     double throughput =(double)(this.numSuccess + this.numNonSuccess) / (this.endTime - this.startTime);
-    long p99 = this.time.get((n-1) * 99 / 100);
-    long max = this.time.get(n-1);
+    long p99 = array.get((n-1) * 99 / 100);
+    long max = array.get(n-1);
     System.out.println("mean: " + mean + " median: " + median +
             " throughput: " + throughput + " p99: " + p99 + " max: " + max);
     File file = new File("log.csv");
@@ -142,6 +147,9 @@ public class MultiThreadClient implements IUpicResortsClient{
           ApiClient client = apiInstance.getApiClient();
           client.setBasePath(serverAddress);
           ThreadLocalRandom random = ThreadLocalRandom.current();
+          int success = 0;
+          List<Long> timeInThread = new ArrayList<>();
+          StringBuilder threadLogWriter = new StringBuilder();
           for (int i1 = 0; i1 < numPost; i1++) {
             int liftID = random.nextInt(endID - startID + 1) + startID;
             long start = System.currentTimeMillis();
@@ -151,23 +159,32 @@ public class MultiThreadClient implements IUpicResortsClient{
                       123,"123", "123", 123);
             } catch (ApiException e) {
               System.err.println("Exception when writing new lift ride!");
-              e.printStackTrace();
+              //e.printStackTrace();
             }
-
             long end = System.currentTimeMillis();
-            time.add(end - start);
-            addLog(start, "POST", end - start, response.getStatusCode());
+            timeInThread.add(end - start);
+            if (response == null ){
+              addLog(threadLogWriter, start, "POST", end - start, -1);
+              threadLogWriter.append("\n");
+              continue;
+            }
+            addLog(threadLogWriter, start, "POST", end - start,
+                    response.getStatusCode());
+            threadLogWriter.append("\n");
             if(response.getStatusCode() == 201) {
               // send post
-              addNumSuccess();
+              success += 1;
             } else {
-
-              addNumNonSuccess();
               if (response.getStatusCode() >= 400) {
                 errLogger.error("Error: Http Code " + response.getStatusCode());
               }
             }
           }
+          this.addNumSuccess(success);
+          this.addNumNonSuccess(numPost - success);
+          this.time.add(timeInThread);
+          threadLogWriter.deleteCharAt(threadLogWriter.length()-1);
+          this.log.add(threadLogWriter.toString());
           if (signal != null) signal.countDown();
           total.countDown();
         } catch (InterruptedException e) {

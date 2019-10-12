@@ -7,14 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 @WebServlet(name = "SkierServlet")
 public class SkierServlet extends HttpServlet {
+
   protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     //res.setContentType("application/json");
     String urlPath = req.getPathInfo();
-
+    Deque<Integer> dq = new LinkedList<>();
     // check we have a URL!
     if (urlPath == null || urlPath.isEmpty()) {
       res.setStatus(HttpServletResponse.SC_NOT_FOUND);
