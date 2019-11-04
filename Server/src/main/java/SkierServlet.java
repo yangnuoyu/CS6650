@@ -5,14 +5,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.sql.SQLException;
 import java.util.Deque;
 import java.util.LinkedList;
 
 @WebServlet(name = "SkierServlet")
 public class SkierServlet extends HttpServlet {
-
+  RunTimeAnalysis analysis = new RunTimeAnalysis();
   protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     //res.setContentType("application/json");
     String urlPath = req.getPathInfo();
@@ -30,16 +30,29 @@ public class SkierServlet extends HttpServlet {
     if (!isUrlValid_Post(urlParts)) {
       res.setStatus(HttpServletResponse.SC_NOT_FOUND);
     } else {
-      res.setStatus(HttpServletResponse.SC_CREATED);
       // do any sophisticated processing with urlParts which contains all the url params
       // TODO: process url params in `urlParts`
-      Integer obj = 1;
-      String jsonString = new Gson().toJson(obj);
-      PrintWriter out = res.getWriter();
-      res.setContentType("application/json");
-      res.setCharacterEncoding("UTF-8");
-      out.print(jsonString);
-      out.flush();
+      final int resortId = Integer.parseInt(urlParts[1]);
+      final int seasonId = Integer.parseInt(urlParts[3]);
+      final int dayId = Integer.parseInt(urlParts[5]);
+      final int skierId = Integer.parseInt(urlParts[7]);
+      BufferedReader reader = req.getReader();
+      String obj = reader.readLine();
+      String[] objs = obj.split("[:,]");
+      final int time = Integer.parseInt(objs[1]);
+      final int liftID = Integer.parseInt(objs[3].substring(0, objs[3].length()-1));
+
+      this.analysis.start();
+      try {
+        LiftRideDao liftRideDao = new LiftRideDao();
+        liftRideDao.createLiftRide(new LiftRideServer(skierId, resortId, seasonId, dayId, time, liftID));
+        res.setStatus(HttpServletResponse.SC_CREATED);
+      }
+      catch (SQLException e) {
+        e.printStackTrace();
+        res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      }
+      this.analysis.stop();
     }
   }
 
@@ -57,30 +70,45 @@ public class SkierServlet extends HttpServlet {
     String[] urlParts = urlPath.split("/");
     // and now validate url path and return the response status code
     // (and maybe also some value if input is valid)
-    if (!isUrlValid_Get(urlParts)) {
-      res.setStatus(HttpServletResponse.SC_NOT_FOUND);
+    if (urlNewLiftRide(urlParts)) {
+      final int resortId = Integer.parseInt(urlParts[1]);
+      final int seasonId = Integer.parseInt(urlParts[3]);
+      final int dayId = Integer.parseInt(urlParts[5]);
+      final int skierId = Integer.parseInt(urlParts[7]);
+      try {
+        LiftRideDao liftRideDao = new LiftRideDao();
+        int result = liftRideDao.getLiftRide(resortId,seasonId,dayId,skierId);
+        String jsonString = new Gson().toJson(result);
+        PrintWriter out = res.getWriter();
+        res.setContentType("application/json");
+        res.setCharacterEncoding("UTF-8");
+        out.print(jsonString);
+        out.flush();
+        res.setStatus(HttpServletResponse.SC_OK);
+      } catch (SQLException e) {
+        e.printStackTrace();
+        res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      }
+    } else if (urlTotalVertical(urlParts)) {
+      final int skierId = Integer.parseInt(urlParts[1]);
+      try {
+        LiftRideDao liftRideDao = new LiftRideDao();
+        String result = liftRideDao.getVertical(skierId);
+        String jsonString = new Gson().toJson(result);
+        PrintWriter out = res.getWriter();
+        res.setContentType("application/json");
+        res.setCharacterEncoding("UTF-8");
+        out.print(jsonString);
+        out.flush();
+        res.setStatus(HttpServletResponse.SC_OK);
+      } catch (SQLException e) {
+        e.printStackTrace();
+        res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      }
     } else {
-      res.setStatus(HttpServletResponse.SC_CREATED);
-      // do any sophisticated processing with urlParts which contains all the url params
-      // TODO: process url params in `urlParts`
-      //res.getWriter().write("It works!");
-      Integer obj = 1;
-      String jsonString = new Gson().toJson(obj);
-      PrintWriter out = res.getWriter();
-      res.setContentType("application/json");
-      res.setCharacterEncoding("UTF-8");
-      out.print(jsonString);
-      out.flush();
+      res.setStatus(HttpServletResponse.SC_NOT_FOUND);
     }
   }
-
-  private boolean isUrlValid_Get(String[] urlPath) {
-    // TODO: validate the request url path according to the API spec
-    // urlPath  = "/1/seasons/2019/day/1/skier/123"
-    // urlParts = [, 1, seasons, 2019, day, 1, skier, 123]
-    return urlNewLiftRide(urlPath) || urlTotalVertical(urlPath);
-  }
-
   private boolean isUrlValid_Post(String[] urlPath) {
     // TODO: validate the request url path according to the API spec
     // urlPath  = "/1/seasons/2019/day/1/skier/123"

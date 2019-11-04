@@ -1,8 +1,8 @@
 # swagger-java-client
 
 Ski Data API for NEU Seattle distributed systems course
-- API version: 1.0.2
-  - Build date: 2019-09-28T18:50:10.380Z[GMT]
+- API version: 1.1
+  - Build date: 2019-11-01T16:45:57.483Z[GMT]
 
 An API for an emulation of skier managment system for RFID tagged lift tickets. Basis for CS6650 Assignments for 2019
 
@@ -153,9 +153,12 @@ Class | Method | HTTP request | Description
 *SkiersApi* | [**getSkierDayVertical**](docs/SkiersApi.md#getSkierDayVertical) | **GET** /skiers/{resortID}/seasons/{seasonID}/days/{dayID}/skiers/{skierID} | write a new lift ride for the skier
 *SkiersApi* | [**getSkierResortTotals**](docs/SkiersApi.md#getSkierResortTotals) | **GET** /skiers/{skierID}/vertical | get the total vertical for the skier for specified seasons at the specified resort
 *SkiersApi* | [**writeNewLiftRide**](docs/SkiersApi.md#writeNewLiftRide) | **POST** /skiers/{resortID}/seasons/{seasonID}/days/{dayID}/skiers/{skierID} | write a new lift ride for the skier
+*StatisticsApi* | [**getPerformanceStats**](docs/StatisticsApi.md#getPerformanceStats) | **GET** /statistics | get the API performance stats
 
 ## Documentation for Models
 
+ - [APIStats](docs/APIStats.md)
+ - [APIStatsEndpointStats](docs/APIStatsEndpointStats.md)
  - [Body](docs/Body.md)
  - [LiftRide](docs/LiftRide.md)
  - [ResortsList](docs/ResortsList.md)
