@@ -1,5 +1,4 @@
 import java.sql.*;
-import java.util.concurrent.BlockingQueue;
 
 public class LiftRideDao {
   private Connection conn;

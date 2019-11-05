@@ -1,5 +1,3 @@
-import com.google.gson.Gson;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,16 +5,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.sql.SQLException;
-import java.util.Deque;
-import java.util.LinkedList;
 
 @WebServlet(name = "SkierServlet")
 public class SkierServlet extends HttpServlet {
-  RunTimeAnalysis analysis = new RunTimeAnalysis();
+  private static final int CAPACITY_STATISTICS = 10000;
+  private RunTimeAnalysis postAnalysis;
+  private RunTimeAnalysis getAnalysis;
+  @Override
+  public void init() throws ServletException {
+    super.init();
+    this.postAnalysis = new RunTimeAnalysis();
+    this.getAnalysis = new RunTimeAnalysis();
+  }
+
+
   protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    //res.setContentType("application/json");
     String urlPath = req.getPathInfo();
-    Deque<Integer> dq = new LinkedList<>();
     // check we have a URL!
     if (urlPath == null || urlPath.isEmpty()) {
       res.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -32,31 +36,16 @@ public class SkierServlet extends HttpServlet {
     } else {
       // do any sophisticated processing with urlParts which contains all the url params
       // TODO: process url params in `urlParts`
-      final int resortId = Integer.parseInt(urlParts[1]);
-      final int seasonId = Integer.parseInt(urlParts[3]);
-      final int dayId = Integer.parseInt(urlParts[5]);
-      final int skierId = Integer.parseInt(urlParts[7]);
-      BufferedReader reader = req.getReader();
-      String obj = reader.readLine();
-      String[] objs = obj.split("[:,]");
-      final int time = Integer.parseInt(objs[1]);
-      final int liftID = Integer.parseInt(objs[3].substring(0, objs[3].length()-1));
-
-      this.analysis.start();
-      try {
-        LiftRideDao liftRideDao = new LiftRideDao();
-        liftRideDao.createLiftRide(new LiftRideServer(skierId, resortId, seasonId, dayId, time, liftID));
-        res.setStatus(HttpServletResponse.SC_CREATED);
-      }
-      catch (SQLException e) {
-        e.printStackTrace();
-        res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-      }
-      this.analysis.stop();
+      long start = System.currentTimeMillis();
+      Operations.skierPost(req, res, urlParts);
+      long end = System.currentTimeMillis();
+      this.postAnalysis.addLatency(end - start);
+      this.getServletConfig().getServletContext().setAttribute("skierPostMean", this.postAnalysis.meanLatency);
+      this.getServletConfig().getServletContext().setAttribute("skierPostMax", this.postAnalysis.maxLatency);
     }
   }
 
-  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
     //res.setContentType("application/json");
     String urlPath = req.getPathInfo();
 
@@ -71,35 +60,23 @@ public class SkierServlet extends HttpServlet {
     // and now validate url path and return the response status code
     // (and maybe also some value if input is valid)
     if (urlNewLiftRide(urlParts)) {
-      final int resortId = Integer.parseInt(urlParts[1]);
-      final int seasonId = Integer.parseInt(urlParts[3]);
-      final int dayId = Integer.parseInt(urlParts[5]);
-      final int skierId = Integer.parseInt(urlParts[7]);
-      try {
-        LiftRideDao liftRideDao = new LiftRideDao();
-        int result = liftRideDao.getLiftRide(resortId,seasonId,dayId,skierId);
-        String jsonString = new Gson().toJson(result);
-        PrintWriter out = res.getWriter();
-        res.setContentType("application/json");
-        res.setCharacterEncoding("UTF-8");
-        out.print(jsonString);
-        out.flush();
-        res.setStatus(HttpServletResponse.SC_OK);
-      } catch (SQLException e) {
-        e.printStackTrace();
-        res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-      }
+      long start = System.currentTimeMillis();
+      Operations.skierDayVerticalGet(res,urlParts);
+      long end = System.currentTimeMillis();
+      this.getAnalysis.addLatency(end - start);
+      this.getServletConfig()
+              .getServletContext()
+              .setAttribute("skierVerticalGetMean", this.getAnalysis.meanLatency);
+      this.getServletConfig()
+              .getServletContext()
+              .setAttribute("skierVerticalGetMax", this.getAnalysis.maxLatency);
+
     } else if (urlTotalVertical(urlParts)) {
       final int skierId = Integer.parseInt(urlParts[1]);
       try {
         LiftRideDao liftRideDao = new LiftRideDao();
         String result = liftRideDao.getVertical(skierId);
-        String jsonString = new Gson().toJson(result);
-        PrintWriter out = res.getWriter();
-        res.setContentType("application/json");
-        res.setCharacterEncoding("UTF-8");
-        out.print(jsonString);
-        out.flush();
+        WebPrinter.print(res, result);
         res.setStatus(HttpServletResponse.SC_OK);
       } catch (SQLException e) {
         e.printStackTrace();

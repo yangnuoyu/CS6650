@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6db13e53-1c95-43e3-9840-272fb16bda3a" name="Default Changelist" comment="" />
+    <list default="true" id="6db13e53-1c95-43e3-9840-272fb16bda3a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/log.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war/lab02_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war/lab02_war.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/DataCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/MySQLDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/DBCPDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/DBCPDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/DataCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/LiftRideDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/LiftRideDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/MySQLDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/RunTimeAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/RunTimeAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/SkierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/SkierServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/target/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/classes/DBCPDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/target/classes/DataCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/target/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/classes/LiftRideDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/target/classes/MySQLDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/target/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/classes/SkierServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/web/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +147,10 @@
       <workItem from="1572755609778" duration="20696000" />
       <workItem from="1572842183936" duration="498000" />
       <workItem from="1572847598662" duration="1699000" />
-      <workItem from="1572850777812" duration="4230000" />
+      <workItem from="1572850777812" duration="7505000" />
+      <workItem from="1572892940328" duration="27681000" />
+      <workItem from="1572957117746" duration="1421000" />
+      <workItem from="1572973788873" duration="712000" />
     </task>
     <servers />
   </component>

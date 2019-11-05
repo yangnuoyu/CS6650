@@ -2,11 +2,37 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="lab02:war" />
       <artifact name="lab02:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6ef48cc-c4ee-489a-8335-c9526bfe7fe9" name="Default Changelist" comment="" />
+    <list default="true" id="d6ef48cc-c4ee-489a-8335-c9526bfe7fe9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/log.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war/lab02_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war/lab02_war.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/DataCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/MySQLDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBCPDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBCPDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LiftRideDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LiftRideDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MySQLDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RunTimeAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RunTimeAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SkierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SkierServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DBCPDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LiftRideDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MySQLDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SkierServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +100,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19425288" />
@@ -256,7 +283,9 @@
       <workItem from="1572726434434" duration="13455000" />
       <workItem from="1572755601606" duration="21919000" />
       <workItem from="1572847570864" duration="1301000" />
-      <workItem from="1572850773110" duration="3159000" />
+      <workItem from="1572850773110" duration="6587000" />
+      <workItem from="1572892692597" duration="28312000" />
+      <workItem from="1572973806610" duration="641000" />
     </task>
     <servers />
   </component>
@@ -283,6 +312,11 @@
           <url>jar://$MAVEN_REPOSITORY$/io/swagger/swagger-java-client/1.0.0/swagger-java-client-1.0.0-sources.jar!/io/swagger/client/ApiClient.java</url>
           <line>708</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WebPrinter.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

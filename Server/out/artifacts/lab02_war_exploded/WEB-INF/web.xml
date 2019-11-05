@@ -12,6 +12,10 @@
         <servlet-name>ResortsServlet</servlet-name>
         <servlet-class>ResortsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StatisticsServlet</servlet-name>
+        <servlet-class>StatisticsServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>SkierServlet</servlet-name>
@@ -21,6 +25,11 @@
     <servlet-mapping>
         <servlet-name>ResortsServlet</servlet-name>
         <url-pattern>/resorts/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StatisticsServlet</servlet-name>
+        <url-pattern>/statistics/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
