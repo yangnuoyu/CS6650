@@ -13,42 +13,37 @@ public class LiftRideDao {
     }
   }
   public void createLiftRide(LiftRideServer newLiftRide) throws SQLException {
-    String insertQueryStatement = "INSERT IGNORE INTO LiftRides (skierId, resortId, seasonId, dayId, time, liftId)" +
-            " VALUES (?,?,?,?,?,?)";
+    String insertQueryStatement = "INSERT IGNORE INTO LiftRides (url, resortId, seasonId, dayId, skierId, time, liftId)" +
+            " VALUES (?,?,?,?,?,?,?)";
     preparedStatement = conn.prepareStatement(insertQueryStatement);
-    preparedStatement.setInt(1, newLiftRide.getSkierId());
+    preparedStatement.setString(1, newLiftRide.getUrl());
     preparedStatement.setInt(2, newLiftRide.getResortId());
     preparedStatement.setInt(3, newLiftRide.getSeasonId());
     preparedStatement.setInt(4, newLiftRide.getDayId());
-    preparedStatement.setInt(5, newLiftRide.getTime());
-    preparedStatement.setInt(6, newLiftRide.getLiftID());
+    preparedStatement.setInt(5, newLiftRide.getSkierId());
+    preparedStatement.setInt(6, newLiftRide.getTime());
+    preparedStatement.setInt(7, newLiftRide.getLiftID());
 
     // execute insert SQL statement
     preparedStatement.executeUpdate();
 
-    insertQueryStatement = "INSERT INTO Verticals (resortId, seasonId, dayId, skierId, vertical)" +
-            " values(?,?,?,?,?)" +
+    insertQueryStatement = "INSERT INTO Verticals (url, vertical)" +
+            " values(?,?)" +
             " ON DUPLICATE KEY UPDATE vertical = vertical + values(vertical)";
     preparedStatement = conn.prepareStatement(insertQueryStatement);
-
-    preparedStatement.setInt(1, newLiftRide.getResortId());
-    preparedStatement.setInt(2, newLiftRide.getSeasonId());
-    preparedStatement.setInt(3, newLiftRide.getDayId());
-    preparedStatement.setInt(4, newLiftRide.getSkierId());
-    preparedStatement.setInt(5, newLiftRide.getLiftID() * 10);
+    preparedStatement.setString(1, newLiftRide.getUrl());
+    preparedStatement.setInt(2, newLiftRide.getLiftID() * 10);
     preparedStatement.executeUpdate();
+
     preparedStatement.close();
     conn.close();
   }
 
-  public int getLiftRide(int resortId, int seasonId, int dayId, int skierId) throws SQLException {
+  public int getLiftRide(String urlPath) throws SQLException {
     String selectQueryStatement = "SELECT vertical FROM Verticals" +
-            " WHERE resortId=? and seasonId=? and dayId=? and skierId =?;";
+            " WHERE url = ?;";
     preparedStatement = conn.prepareStatement(selectQueryStatement);
-    preparedStatement.setInt(1, resortId);
-    preparedStatement.setInt(2, seasonId);
-    preparedStatement.setInt(3, dayId);
-    preparedStatement.setInt(4, skierId);
+    preparedStatement.setString(1, urlPath);
     ResultSet resultSet = preparedStatement.executeQuery();
     resultSet.next();
     int output = resultSet.getInt("vertical");

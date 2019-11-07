@@ -1,40 +1,46 @@
-public class LiftRideServer {
+class LiftRideServer {
+  final String url;
   final int skierId;
   final int resortId;
   final int seasonId;
   final int dayId;
   final int time;
   final int liftID;
-  public LiftRideServer(int skierId, int resortId, int seasonId, int dayId, int time, int liftID) {
-    this.skierId = skierId;
+  LiftRideServer(String url, int resortId, int seasonId, int dayId, int skierId, int time, int liftID) {
+    this.url = url;
     this.resortId = resortId;
     this.seasonId = seasonId;
     this.dayId = dayId;
+    this.skierId = skierId;
     this.time = time;
     this.liftID = liftID;
   }
 
-  public int getSkierId() {
+  public String getUrl() {
+    return this.url;
+  }
+
+  int getSkierId() {
     return this.skierId;
   }
 
-  public int getResortId() {
+  int getResortId() {
     return this.resortId;
   }
 
-  public int getSeasonId() {
+  int getSeasonId() {
     return this.seasonId;
   }
 
-  public int getDayId() {
+  int getDayId() {
     return this.dayId;
   }
 
-  public int getTime() {
+  int getTime() {
     return this.time;
   }
 
-  public int getLiftID() {
+  int getLiftID() {
     return this.liftID;
   }
 }

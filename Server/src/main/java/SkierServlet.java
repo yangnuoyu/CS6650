@@ -8,14 +8,14 @@ import java.sql.SQLException;
 
 @WebServlet(name = "SkierServlet")
 public class SkierServlet extends HttpServlet {
-  private static final int CAPACITY_STATISTICS = 10000;
+  private static final int CAPACITY_STATISTICS = 400000;
   private RunTimeAnalysis postAnalysis;
   private RunTimeAnalysis getAnalysis;
   @Override
   public void init() throws ServletException {
     super.init();
-    this.postAnalysis = new RunTimeAnalysis();
-    this.getAnalysis = new RunTimeAnalysis();
+    this.postAnalysis = new RunTimeAnalysis(CAPACITY_STATISTICS);
+    this.getAnalysis = new RunTimeAnalysis(CAPACITY_STATISTICS);
   }
 
 
@@ -37,7 +37,7 @@ public class SkierServlet extends HttpServlet {
       // do any sophisticated processing with urlParts which contains all the url params
       // TODO: process url params in `urlParts`
       long start = System.currentTimeMillis();
-      Operations.skierPost(req, res, urlParts);
+      Operations.skierPost(req, res, urlPath, urlParts);
       long end = System.currentTimeMillis();
       this.postAnalysis.addLatency(end - start);
       this.getServletConfig().getServletContext().setAttribute("skierPostMean", this.postAnalysis.meanLatency);
@@ -61,7 +61,7 @@ public class SkierServlet extends HttpServlet {
     // (and maybe also some value if input is valid)
     if (urlNewLiftRide(urlParts)) {
       long start = System.currentTimeMillis();
-      Operations.skierDayVerticalGet(res,urlParts);
+      Operations.skierDayVerticalGet(res,urlPath);
       long end = System.currentTimeMillis();
       this.getAnalysis.addLatency(end - start);
       this.getServletConfig()

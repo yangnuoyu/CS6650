@@ -4,28 +4,20 @@
     <list default="true" id="6db13e53-1c95-43e3-9840-272fb16bda3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/log.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClientThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ClientThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war/lab02_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war/lab02_war.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/DataCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/MySQLDemo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/artifacts/lab02_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/main/java/DBCPDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/DBCPDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/DataCache.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/main/java/LiftRideDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/LiftRideDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/MySQLDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/LiftRideServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/LiftRideServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/main/java/RunTimeAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/RunTimeAnalysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/main/java/SkierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/SkierServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/target/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/classes/DBCPDataSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/target/classes/DataCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/target/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/classes/LiftRideDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/target/classes/MySQLDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/target/classes/META-INF/Server.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/target/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/classes/SkierServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +142,9 @@
       <workItem from="1572850777812" duration="7505000" />
       <workItem from="1572892940328" duration="27681000" />
       <workItem from="1572957117746" duration="1421000" />
-      <workItem from="1572973788873" duration="712000" />
+      <workItem from="1572973788873" duration="6767000" />
+      <workItem from="1573002889068" duration="2803000" />
+      <workItem from="1573007815860" duration="22361000" />
     </task>
     <servers />
   </component>

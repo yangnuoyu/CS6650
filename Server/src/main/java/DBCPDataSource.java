@@ -6,19 +6,12 @@ public class DBCPDataSource {
 
   // NEVER store sensitive information below in plain text!
 
-  private static final String HOST_NAME = "cs6650.cqoebcwis6ti.us-west-2.rds.amazonaws.com";
-  private static final String PORT = "3306";
+  private static final String HOST_NAME = System.getenv("MySQL_IP_ADDRESS");
+  private static final String PORT = System.getenv("MySQL_PORT");
   private static final String DATABASE = "CS6650";
-  private static final String USERNAME = "root";
-  private static final String PASSWORD = "Maozedong1";
+  private static final String USERNAME = System.getenv("DB_USERNAME");
+  private static final String PASSWORD = System.getenv("DB_PASSWORD");
   private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-
-//  private static final String HOST_NAME = System.getenv("MySQL_IP_ADDRESS");
-//  private static final String PORT = System.getenv("MySQL_PORT");
-//  private static final String DATABASE = "CS6650";
-//  private static final String USERNAME = System.getenv("DB_USERNAME");
-//  private static final String PASSWORD = System.getenv("DB_PASSWORD");
-//  private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
   static {
     // https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html
@@ -27,9 +20,10 @@ public class DBCPDataSource {
     dataSource.setDriverClassName(JDBC_DRIVER);
     dataSource.setUsername(USERNAME);
     dataSource.setPassword(PASSWORD);
-    //dataSource.setMinIdle(5);
-    //dataSource.setMaxIdle(10);
-    //dataSource.setMaxOpenPreparedStatements(100);
+    dataSource.setInitialSize(10);
+    dataSource.setMinIdle(5);
+    dataSource.setMaxIdle(10);
+    dataSource.setMaxOpenPreparedStatements(100);
   }
 
   public static Connection getConnection() throws SQLException {

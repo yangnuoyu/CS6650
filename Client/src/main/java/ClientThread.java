@@ -49,7 +49,7 @@ public class ClientThread extends Thread {
       for (int i = 0; i < this.numPost; i++) {
         int resortID = 1;
         int skierID = random.nextInt(startID, endID+1);
-        int dayID = random.nextInt(365);
+        int dayID = 1;//random.nextInt(365);
         int seasonID = 2018;
         int liftID = random.nextInt(this.client.numLifts);
         int time = random.nextInt(startTime, endTime+1);
