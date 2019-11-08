@@ -13,16 +13,15 @@ public class LiftRideDao {
     }
   }
   public void createLiftRide(LiftRideServer newLiftRide) throws SQLException {
-    String insertQueryStatement = "INSERT IGNORE INTO LiftRides (url, resortId, seasonId, dayId, skierId, time, liftId)" +
-            " VALUES (?,?,?,?,?,?,?)";
+    String insertQueryStatement = "INSERT IGNORE INTO LiftRides (resortId, seasonId, dayId, skierId, time, liftId)" +
+            " VALUES (?,?,?,?,?,?)";
     preparedStatement = conn.prepareStatement(insertQueryStatement);
-    preparedStatement.setString(1, newLiftRide.getUrl());
-    preparedStatement.setInt(2, newLiftRide.getResortId());
-    preparedStatement.setInt(3, newLiftRide.getSeasonId());
-    preparedStatement.setInt(4, newLiftRide.getDayId());
-    preparedStatement.setInt(5, newLiftRide.getSkierId());
-    preparedStatement.setInt(6, newLiftRide.getTime());
-    preparedStatement.setInt(7, newLiftRide.getLiftID());
+    preparedStatement.setInt(1, newLiftRide.getResortId());
+    preparedStatement.setInt(2, newLiftRide.getSeasonId());
+    preparedStatement.setInt(3, newLiftRide.getDayId());
+    preparedStatement.setInt(4, newLiftRide.getSkierId());
+    preparedStatement.setInt(5, newLiftRide.getTime());
+    preparedStatement.setInt(6, newLiftRide.getLiftID());
 
     // execute insert SQL statement
     preparedStatement.executeUpdate();

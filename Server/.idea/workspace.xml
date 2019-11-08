@@ -2,27 +2,26 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="lab02:war" />
       <artifact name="lab02:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ef48cc-c4ee-489a-8335-c9526bfe7fe9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../CS5200HW4/src/restaurant/tools/Inserter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/log.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/ClientThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/target/classes/ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/target/classes/ClientThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war/lab02_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war/lab02_war.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/SkierServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/DBCPDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab02_war_exploded/WEB-INF/classes/LiftRideDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DBCPDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBCPDataSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LiftRideDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LiftRideDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LiftRideServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LiftRideServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RunTimeAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RunTimeAnalysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SkierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SkierServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Server.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SkierServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SkierServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DBCPDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DBCPDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LiftRideDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LiftRideDao.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -280,7 +279,12 @@
       <workItem from="1572995384513" duration="410000" />
       <workItem from="1572997814031" duration="3470000" />
       <workItem from="1573004689340" duration="1870000" />
-      <workItem from="1573007133162" duration="16838000" />
+      <workItem from="1573007133162" duration="17011000" />
+      <workItem from="1573088631060" duration="606000" />
+      <workItem from="1573134415969" duration="312000" />
+      <workItem from="1573134824351" duration="697000" />
+      <workItem from="1573151058134" duration="1487000" />
+      <workItem from="1573155575403" duration="6933000" />
     </task>
     <servers />
   </component>

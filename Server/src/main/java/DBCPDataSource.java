@@ -8,9 +8,10 @@ public class DBCPDataSource {
 
   private static final String HOST_NAME = System.getenv("MySQL_IP_ADDRESS");
   private static final String PORT = System.getenv("MySQL_PORT");
-  private static final String DATABASE = "CS6650";
   private static final String USERNAME = System.getenv("DB_USERNAME");
   private static final String PASSWORD = System.getenv("DB_PASSWORD");
+
+  private static final String DATABASE = "CS6650";
   private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
   static {
@@ -20,9 +21,9 @@ public class DBCPDataSource {
     dataSource.setDriverClassName(JDBC_DRIVER);
     dataSource.setUsername(USERNAME);
     dataSource.setPassword(PASSWORD);
-    dataSource.setInitialSize(10);
-    dataSource.setMinIdle(5);
-    dataSource.setMaxIdle(10);
+    dataSource.setMinIdle(0);
+    dataSource.setMaxIdle(-1);
+    dataSource.setMaxTotal(-1);
     dataSource.setMaxOpenPreparedStatements(100);
   }
 
