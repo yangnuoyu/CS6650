@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "SkierServlet")
+@WebServlet(name = "StatisticsServlet", value = "/statistics")
 public class StatisticsServlet extends HttpServlet{
 
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {

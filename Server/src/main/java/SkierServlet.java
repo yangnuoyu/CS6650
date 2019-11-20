@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.sql.SQLException;
 
-@WebServlet(name = "SkierServlet")
+@WebServlet(name = "SkierServlet", value = "/skiers/*")
 public class SkierServlet extends HttpServlet {
   private static final int CAPACITY_STATISTICS = 400000;
   private RunTimeAnalysis postAnalysis;
